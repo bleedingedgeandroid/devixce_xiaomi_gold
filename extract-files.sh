@@ -87,7 +87,7 @@ function blob_fixup {
 			grep -q "android.hardware.gnss-V1-ndk_platform.so" "${2}" && \
 			"${PATCHELF}" --replace-needed "android.hardware.gnss-V1-ndk_platform.so" "android.hardware.gnss-V1-ndk.so" "${2}"
 			;;
-		vendor/bin/hw/android.hardware.media.c2@1.2-mediatek)
+		vendor/bin/hw/android.hardware.media.c2@1.2-mediatek-64b)
 			grep -q "libavservices_minijail_vendor.so" "${2}" && \
 			"${PATCHELF}" --replace-needed "libavservices_minijail_vendor.so" "libavservices_minijail.so" "${2}"
 			grep -q "libstagefright_foundation-v33.so" "${2}" || \
