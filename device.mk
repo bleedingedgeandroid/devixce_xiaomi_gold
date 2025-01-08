@@ -14,7 +14,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
 
 # Inherit the proprietary files
-$(call inherit-product, vendor/xiaomi/mt6833-common/mt6833-common-vendor.mk)
+$(call inherit-product, vendor/xiaomi/gold/gold-vendor.mk)
 
 # API
 PRODUCT_SHIPPING_API_LEVEL := 30
