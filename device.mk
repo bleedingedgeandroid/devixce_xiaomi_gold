@@ -249,7 +249,8 @@ PRODUCT_PACKAGES += \
     NfcNci \
     SecureElement \
     Tag \
-    com.android.nfc_extras
+    com.android.nfc_extras \
+    android.hardware.nfc-service.st
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.nfc.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_nfc/android.hardware.nfc.xml \
@@ -344,6 +345,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     init.recovery.mt6833.rc
 
+PRODUCT_COPY_FILES += \
+    vendor/xiaomi/everpal/proprietary/vendor/firmware/novatek_ts_ct_fw.bin:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/firmware/novatek_ts_ct_fw.bin \
+    vendor/xiaomi/everpal/proprietary/vendor/firmware/novatek_ts_ct_mp.bin:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/firmware/novatek_ts_ct_mp.bin \
+    vendor/xiaomi/everpal/proprietary/vendor/firmware/novatek_ts_fw.bin:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/firmware/novatek_ts_fw.bin \
+    vendor/xiaomi/everpal/proprietary/vendor/firmware/novatek_ts_mp.bin:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/firmware/novatek_ts_mp.bin
+
 # Rootdir
 PRODUCT_PACKAGES += \
     fstab.mt6833 \
@@ -355,7 +362,10 @@ PRODUCT_PACKAGES += \
     init.project.rc \
     init.sensor_2_0.rc \
     init.target.rc \
-    ueventd.mt6833.rc
+    ueventd.mt6833.rc \
+    init.batterysecret.rc \
+    init.mt6833.rc \
+    init.stnfc.rc
 
 # Secure Element
 PRODUCT_PACKAGES += \

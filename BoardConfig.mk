@@ -26,6 +26,8 @@ AB_OTA_PARTITIONS += \
 
 BOARD_USES_RECOVERY_AS_BOOT := true
 
+TARGET_OTA_ASSERT_DEVICE := gold
+
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-2a-dotprod
@@ -87,14 +89,14 @@ BOARD_HAS_MTK_HARDWARE := true
 # Metadata
 BOARD_USES_METADATA_PARTITION := true
 
-# NFC
-ODM_MANIFEST_SKUS += nfc
-
 # Partitions
+BOARD_BOOTIMAGE_PARTITION_SIZE := 134217728
 BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_DTBOIMG_PARTITION_SIZE := 8388608
 
+BOARD_SUPER_PARTITION_SIZE := 9126805504
 BOARD_SUPER_PARTITION_GROUPS := xiaomi_dynamic_partitions
+BOARD_XIAOMI_DYNAMIC_PARTITIONS_SIZE := 9122611200
 BOARD_XIAOMI_DYNAMIC_PARTITIONS_PARTITION_LIST := \
     system \
     system_dlkm \
@@ -136,25 +138,28 @@ BOARD_VENDOR := xiaomi
 TARGET_BOARD_PLATFORM := mt6833
 
 # Power
-TARGET_POWERHAL_MODE_EXT := $(device_path)/power/power-mode.cpp
+TARGET_POWERHAL_MODE_EXT := $(DEVICE_PATH)/power/power-mode.cpp
 
 # Properties
-TARGET_SYSTEM_PROP += $(device_path)/configs/props/system.prop
-TARGET_VENDOR_PROP += $(device_path)/configs/props/vendor.prop
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/configs/props/system.prop
+TARGET_VENDOR_PROP += $(DEVICE_PATH)/configs/props/vendor.prop
+TARGET_ODM_PROP += $(DEVICE_PATH)/configs/props/odm.prop
+TARGET_PRODUCT_PROP += $(DEVICE_PATH)/configs/props/product.prop
+TARGET_SYSTEM_EXT_PROP += $(DEVICE_PATH)/configs/props/system_ext.prop
 
 # RIL
 ENABLE_VENDOR_RIL_SERVICE := true
 
 # Recovery
-TARGET_RECOVERY_FSTAB := $(device_path)/rootdir/etc/fstab.mt6833
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.mt6833
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
 # SEPolicy
 include device/mediatek/sepolicy_vndr/SEPolicy.mk
-BOARD_SEPOLICY_DIRS += $(device_path)/sepolicy/vendor
-SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(device_path)/sepolicy/private
+BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
+SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/private
 
 # Vendor Security Patch
 VENDOR_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
@@ -183,9 +188,9 @@ BOARD_AVB_VBMETA_VENDOR_ROLLBACK_INDEX := 1
 BOARD_AVB_VBMETA_VENDOR_ROLLBACK_INDEX_LOCATION := 3
 
 # Vintf
-DEVICE_MANIFEST_FILE += $(device_path)/configs/vintf/manifest.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/configs/vintf/manifest.xml
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
-    $(device_path)/configs/vintf/framework_compatibility_matrix.xml
+    $(DEVICE_PATH)/configs/vintf/framework_compatibility_matrix.xml
 
 # WiFi
 WPA_SUPPLICANT_VERSION := VER_0_8_X
